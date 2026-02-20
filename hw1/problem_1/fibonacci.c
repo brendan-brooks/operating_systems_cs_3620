@@ -3,22 +3,22 @@
 
 int main(int argc, char* argv[]) {
 
-    const int n = atoi(argv[1]);            // Read in command line argument (as int)
+    const int n = atoi(argv[1]);    // Read in command line argument (as int)
 
-    if (n < 1) {                            // Error if inputted n < 1
-        printf("n must be >= 1");
+    if (n < 1 || n > 92) {          // Error if inputted n < 1 (or if n too large: overflow)
+        printf("n must be an int between 1 and 92");
         return 1;
     }
 
-    int a = 0;
-    int b = 1;
+    long long a = 0;
+    long long b = 1;
 
     // Fibonacci loop
     for (int i=0; i<=n; i++) {
 
-        printf("%d\n", a);      // Newline following each int
+        printf("%lld\n", a);      // Newline following each int
 
-        int temp = a + b;
+        long long temp = a + b;
         a = b;
         b = temp;
     }
