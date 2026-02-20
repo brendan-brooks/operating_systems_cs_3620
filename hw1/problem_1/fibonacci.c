@@ -3,6 +3,11 @@
 
 int main(int argc, char* argv[]) {
 
+    if (argc != 2) {
+        printf("You must give ONE command line argument, an int n");
+        return 1;
+    }
+
     const int n = atoi(argv[1]);    // Read in command line argument (as int)
 
     if (n < 1 || n > 92) {          // Error if inputted n < 1 (or if n too large: overflow)
