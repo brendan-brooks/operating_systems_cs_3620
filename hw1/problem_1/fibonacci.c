@@ -4,14 +4,14 @@
 int main(int argc, char* argv[]) {
 
     if (argc != 2) {                // Check number of command line arguments
-        printf("You must give ONE command line argument, an int n");
+        printf("You must give ONE command line argument, an int n\n");
         return 1;
     }
 
     const int n = atoi(argv[1]);    // Read in command line argument (as int)
 
     if (n < 1 || n > 92) {          // Error if inputted n < 1 (or if n too large: overflow)
-        printf("n must be an int between 1 and 92");
+        printf("n must be an int between 1 and 92\n");
         return 1;
     }
 
