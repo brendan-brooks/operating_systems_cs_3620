@@ -10,7 +10,18 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    printf("%d", n);
+    int a = 0;
+    int b = 1;
+
+    // Fibonacci loop
+    for (int i=0; i<=n; i++) {
+
+        printf("%d\n", a);      // Newline following each int
+
+        int temp = a + b;
+        a = b;
+        b = temp;
+    }
 
     return 0;
 }
