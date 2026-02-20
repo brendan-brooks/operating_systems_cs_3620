@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[]) {
 
-    if (argc != 2) {
+    if (argc != 2) {                // Check number of command line arguments
         printf("You must give ONE command line argument, an int n");
         return 1;
     }
