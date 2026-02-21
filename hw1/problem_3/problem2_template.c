@@ -20,21 +20,31 @@ void print_list(elem_t *head) {
 
 void bubble_sort_copy_value(elem_t **head) {
 
-    // Create a current pointer initially pointing to the head
-    elem_t *curr = *head;
+    // Bubble sort repeatedly passes through the list
+    bool swap_flag = true;
+    while (swap_flag) {
+        swap_flag = false;  // (This pass needs a swap to do another pass)
 
-    // One pass through the list (takes advantage of short-circuiting)
-    while (curr != NULL && curr->next != NULL) {
+        // Create a current pointer initially pointing to the head
+        elem_t *curr = *head;
 
-        // If any element is greater than its next element, swap their values
-        if (curr->value > curr->next->value) {
-           int temp = curr->value;
-           curr->value = curr->next->value;
-           curr->next->value = temp;
-       }
+        // One pass through the list (takes advantage of short-circuiting)
+        while (curr != NULL && curr->next != NULL) {
 
-        // Advance the current pointer
-        curr = curr->next;
+            // If any element is greater than its next element, swap their values
+            if (curr->value > curr->next->value) {
+                int temp = curr->value;
+                curr->value = curr->next->value;
+                curr->next->value = temp;
+
+                // A swap occurred during this pass through the list; do another pass
+                swap_flag = true;
+            }
+
+            // Advance the current pointer
+            curr = curr->next;
+        }
+
     }
 
 }
