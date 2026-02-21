@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>     // atoi()
+#include <stdbool.h>    // bools
 
 int main(int argc, char* argv[]) {
 
@@ -14,6 +15,48 @@ int main(int argc, char* argv[]) {
         printf("n must be an int >= 1\n");
         return 1;
     }
+
+    // Allocate a Sieve of Eratosthenes, an array of bools
+    // representing the primality of numbers 0 through n (inclusive)
+    bool* is_prime_arr = (bool*) malloc((n+1) * sizeof(bool));
+
+    if (!is_prime_arr) {
+        printf("Failed to allocate array\n");
+        return 1;
+    }
+
+    // All numbers are assumed prime initially
+    for (int i=0; i<=n; i++) {
+        is_prime_arr[i] = true;
+    }
+
+    // 0 and 1 are canonically not prime
+    is_prime_arr[0] = false;
+    is_prime_arr[1] = false;
+
+    // Starting from 2, mark all multiples of each remaining prime as not prime
+    // (see https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes for the visualization)
+    for (int i=2; i<=n; i++) {
+
+        if (is_prime_arr[i]) {                                          // A remaining prime (i)
+
+            for (int multiple = 2*i; multiple <= n; multiple += i) {    // Mark all its multiples (2i, 3i...) not prime
+                is_prime_arr[multiple] = false;
+            }
+
+        }
+    }
+
+    // Print n, then the primes (I'm not going to print 1 as a prime!)
+    printf("%d\n", n);
+    for (int i=0; i<=n; i++) {
+        if (is_prime_arr[i]) {
+            printf("%d\n", i);
+        }
+    }
+
+    // Free the allocated sieve
+    free(is_prime_arr);
 
     return 0;
 }
