@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>     // atoi()
+#include <stdlib.h>     // atoi(), malloc(), free()
 #include <stdbool.h>    // bools
 
 int main(int argc, char* argv[]) {
