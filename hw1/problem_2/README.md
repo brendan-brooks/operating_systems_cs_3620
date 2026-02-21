@@ -1,4 +1,4 @@
-# Sieve of Eratosthenes
+# Sieve of Eratosthenes (Primes Algorithm)
 
 Implemented the [Sieve of Eratosthenes algorithm](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) to compute the primes 
 from 0 to n (inclusive). I chose it because it is quicker than
