@@ -36,7 +36,10 @@ int main(int argc, char* argv[]) {
 
     // Starting from 2, mark all multiples of each remaining prime as not prime
     // (see https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes for the visualization)
-    for (int i=2; i<=n; i++) {
+    //
+    // Note: marking multiples of each number from 2 to n is inefficient; you can check just
+    // from 2 to sqrt(n), as any composite number <= n would have a prime factor <= sqrt(n) :)
+    for (int i=2; i*i<=n; i++) {
 
         if (is_prime_arr[i]) {                                          // A remaining prime (i)
 
