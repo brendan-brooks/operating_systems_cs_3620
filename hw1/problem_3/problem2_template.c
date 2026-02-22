@@ -62,11 +62,14 @@ void bubble_sort_copy_ref(elem_t **head) {
         // One pass through the list (takes advantage of short-circuiting)
         while (curr != NULL && curr->next != NULL) {
 
+            elem_t *a = curr;
+            elem_t *b = curr->next;
+
             // If any element is greater than its next element, swap their values
-            if (curr->value > curr->next->value) {
-                int temp = curr->value;
-                curr->value = curr->next->value;
-                curr->next->value = temp;
+            if (a->value  >  b->value) {
+                int temp = a->value;
+                a->value = b->value;
+                b->value = temp;
 
                 // A swap occurred during this pass through the list; do another pass
                 swap_flag = true;
