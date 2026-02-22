@@ -70,6 +70,8 @@ void bubble_sort_copy_ref(elem_t **head) {
 
                 if (a->prev != NULL) {
                     a->prev->next = b;
+                } else {
+                    *head = b;          // IMPORTANT: Swapping at start of list requires swapping head!
                 }
                 if (b->next != NULL) {
                     b->next->prev = a;
@@ -86,7 +88,7 @@ void bubble_sort_copy_ref(elem_t **head) {
             }
 
             // Advance the current pointer
-                curr = curr->next;
+            curr = curr->next;
         }
 
     }
