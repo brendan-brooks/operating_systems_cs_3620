@@ -57,19 +57,15 @@ void bubble_sort_copy_ref(elem_t **head) {
         swap_flag = false;  // (This pass needs a swap to do another pass)
 
         // Create a current pointer initially pointing to the head
-        elem_t *curr = *head;
+        elem_t *a = *head;
 
         // One pass through the list (takes advantage of short-circuiting)
-        while (curr != NULL && curr->next != NULL) {
+        while (a != NULL && a->next != NULL) {
 
-            elem_t *a = curr;
-            elem_t *b = curr->next;
+            elem_t *b = a->next;
 
-            // If any element is greater than its next element, swap their values
+            // If any element is greater than its next element, swap their pointers
             if (a->value  >  b->value) {
-                int temp = a->value;
-                a->value = b->value;
-                b->value = temp;
 
                 // A swap occurred during this pass through the list; do another pass
                 swap_flag = true;
