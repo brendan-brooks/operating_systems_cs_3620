@@ -102,7 +102,7 @@ elem_t *build_list(int num_elements) {
     for (int i = 0; i < num_elements; i++) {
         elem_t *e = (elem_t *) malloc(sizeof(elem_t));
 
-        e->value = i; //random() % 100;
+        e->value = random() % 100;
         e->next = NULL;
         e->prev = NULL;
 
@@ -121,7 +121,7 @@ int main() {
     elem_t *head = build_list(100);
     print_list(head);
     printf("==================================\n");
-    //bubble_sort_copy_value(&head);
+    bubble_sort_copy_value(&head);
     bubble_sort_copy_ref(&head);
     print_list(head);
 
