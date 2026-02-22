@@ -117,6 +117,15 @@ elem_t *build_list(int num_elements) {
     return head;
 }
 
+void free_list(elem_t *head) {
+    elem_t *curr = head;
+    while (curr != NULL) {
+        elem_t *next = curr->next;
+        free(curr);
+        curr = next;
+    }
+}
+
 int main() {
     elem_t *head = build_list(100);
     print_list(head);
@@ -124,6 +133,9 @@ int main() {
     bubble_sort_copy_value(&head);
     bubble_sort_copy_ref(&head);
     print_list(head);
+
+    free_list(head);     // :)
+    head = NULL;
 
     return 0;
 }
